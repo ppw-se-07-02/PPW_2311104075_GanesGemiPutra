@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insuvit Teh Herbal - Panel Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <header class="admin-header">
+            <h1><i class="fas fa-cog"></i> Admin Insuvit Teh Herbal</h1>
+            <p>Panel Administrasi - Kelola Bisnis Anda dengan Mudah</p>
+        </header>
+        
+        <aside class="menu">
+            <h2><i class="fas fa-bars"></i> Menu Admin</h2>
+            <ul>
+                <li><a href="#" class="active"><i class="fas fa-users"></i> Data User</a></li>
+                <li><a href="#"><i class="fas fa-boxes"></i> Kelola Produk</a></li>
+                <li><a href="#"><i class="fas fa-key"></i> Edit Password</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+            
+            <div class="admin-summary">
+                <h3><i class="fas fa-chart-line"></i> Ringkasan</h3>
+                <div class="summary-stats">
+                    <div class="stat">
+                        <div class="number">152</div>
+                        <div class="label">Pengguna</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">28</div>
+                        <div class="label">Produk</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">12.5jt</div>
+                        <div class="label">Pendapatan</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-gallery">
+                <h3><i class="fas fa-images"></i> Galeri Cepat</h3>
+                <div class="quick-gallery">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gudang Produk" class="popup-img">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Produk Baru" class="popup-img">
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="admin-content">
+            <h2><i class="fas fa-users"></i> Data User</h2>
+            <p>Kelola data pengguna dan akses mereka ke sistem.</p>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-user-plus"></i>
+                    <div class="number">15</div>
+                    <div class="label">User Baru (Bulan Ini)</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-check"></i>
+                    <div class="number">142</div>
+                    <div class="label">User Aktif</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user-clock"></i>
+                    <div class="number">10</div>
+                    <div class="label">User Non-Aktif</div>
+                </div>
+            </div>
+            
+            <div class="content-header">
+                <h3><i class="fas fa-list"></i> Daftar User</h3>
+                <button class="btn-primary"><i class="fas fa-plus"></i> Tambah User</button>
+            </div>
+            
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Avatar</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="user-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Andi Wijaya" class="popup-img">
+                            </div>
+                        </td>
+                        <td>Andi Wijaya</td>
+                        <td>andi@example.com</td>
+                        <td>Admin</td>
+                        <td><span class="status active">Aktif</span></td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="#" class="action-btn delete-btn"><i class="fas fa-trash"></i> Hapus</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-avatar">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sari Indah" class="popup-img">
+                            </div>
+                        </td>
+                        <td>Sari Indah</td>
+                        <td>sari@example.com</td>
+                        <td>User</td>
+                        <td><span class="status active">Aktif</span></td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="#" class="action-btn delete-btn"><i class="fas fa-trash"></i> Hapus</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-avatar">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Budi Santoso" class="popup-img">
+                            </div>
+                        </td>
+                        <td>Budi Santoso</td>
+                        <td>budi@example.com</td>
+                        <td>User</td>
+                        <td><span class="status inactive">Non-Aktif</span></td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="#" class="action-btn delete-btn"><i class="fas fa-trash"></i> Hapus</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="user-avatar">
+                                <img src="https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Rina Melati" class="popup-img">
+                            </div>
+                        </td>
+                        <td>Rina Melati</td>
+                        <td>rina@example.com</td>
+                        <td>User</td>
+                        <td><span class="status active">Aktif</span></td>
+                        <td>
+                            <a href="#" class="action-btn edit-btn"><i class="fas fa-edit"></i> Edit</a>
+                            <a href="#" class="action-btn delete-btn"><i class="fas fa-trash"></i> Hapus</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="product-management">
+                <h3><i class="fas fa-boxes"></i> Kelola Produk</h3>
+                <div class="product-gallery">
+                    <div class="admin-product-item">
+                        <div class="product-image">
+                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasb-m0eofs68x6vgd9@resize_w900_nl.webp" alt="Teh Herbal Detox" class="popup-img">
+                        </div>
+                        <h4>Teh Herbal Detox</h4>
+                        <p>Stok: 45</p>
+                        <div class="product-actions">
+                            <button class="btn-small edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn-small delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="admin-product-item">
+                        <div class="product-image">
+                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasi-m0eofs692t5811@resize_w900_nl.webp" alt="Teh Herbal Relaksasi" class="popup-img">
+                        </div>
+                        <h4>Paket 2</h4>
+                        <p>Stok: 32</p>
+                        <div class="product-actions">
+                            <button class="btn-small edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn-small delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="admin-product-item">
+                        <div class="product-image">
+                            <img src="https://down-id.img.susercontent.com/file/id-11134207-7rasd-m0ets9leqy588c.webp" alt="Teh Herbal Energi" class="popup-img">
+                        </div>
+                        <h4>Teh Herbal Energi</h4>
+                        <p>Stok: 28</p>
+                        <div class="product-actions">
+                            <button class="btn-small edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="btn-small delete-btn"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="add-user-form">
+                <h3><i class="fas fa-user-plus"></i> Tambah User Baru</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" class="form-control" placeholder="Masukkan nama lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Masukkan alamat email">
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar">Avatar</label>
+                        <input type="file" id="avatar" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role" class="form-control">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Simpan User</button>
+                </form>
+            </div>
+        </main>
+        
+        <footer class="admin-footer">
+            <p>&copy; 2023 Insuvit Teh Herbal - Panel Administrasi</p>
+            <p class="login-info">Terakhir login: 15 November 2023, 10:30 WIB</p>
+        </footer>
+    </div>
+    
+    <!-- Modal Pop-up untuk Gambar -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
+    
+    <!-- Font Awesome untuk ikon -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // JavaScript untuk pop-up gambar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the modal
+            var modal = document.getElementById("imageModal");
+            
+            // Get the image and insert it inside the modal
+            var modalImg = document.getElementById("modalImg");
+            var captionText = document.getElementById("caption");
+            
+            // Get all images with class 'popup-img'
+            var images = document.getElementsByClassName('popup-img');
+            
+            // Add click event to all popup images
+            for (var i = 0; i < images.length; i++) {
+                images[i].onclick = function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+            }
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>
