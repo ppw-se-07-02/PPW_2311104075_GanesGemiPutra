@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Modul 6 - JavaScript & jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        .task {
+            margin-bottom: 40px;
+            padding: 25px;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .task:hover {
+            transform: translateY(-2px);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        h2 {
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 0;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 8px 5px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        #kotak {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        #paragrafTombol {
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            transition: all 0.3s;
+            min-height: 20px;
+        }
+        #teks {
+            padding: 15px;
+            background-color: #e8f4fc;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .barang-item {
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #27ae60;
+        }
+        #totalHarga {
+            font-weight: bold;
+            font-size: 20px;
+            color: #27ae60;
+            padding: 15px;
+            background-color: #e8f8ef;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .task-description {
+            background-color: #f1f8ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tugas Modul 6 - JavaScript & jQuery</h1>
+
+    <!-- Tugas 1: JavaScript - Menghitung Total Harga -->
+    <div class="task" id="tugas1">
+        <h2>Tugas 1: Menghitung Total Harga Pembelian</h2>
+        <div class="task-description">
+            <p><strong>Deskripsi:</strong> Program JavaScript untuk menghitung total harga pembelian barang berdasarkan harga satuan dan jumlah.</p>
+        </div>
+        <div id="daftarBarang">
+            <h3>Pembelian Barang</h3>
+            <div id="listBarang"></div>
+            <button onclick="hitungTotal()">Hitung Total Harga</button>
+            <p id="totalHarga"></p>
+        </div>
+    </div>
+
+    <!-- Tugas 2: jQuery - Mengganti Teks -->
+    <div class="task" id="tugas2">
+        <h2>Tugas 2: Mengganti Teks dengan jQuery</h2>
+        <div class="task-description">
+            <p><strong>Deskripsi:</strong> Mengganti teks dalam elemen menggunakan jQuery setelah halaman selesai dimuat.</p>
+        </div>
+        <p id="teks">Belajar jQuery itu asik!</p>
+    </div>
+
+    <!-- Tugas 3: jQuery - Mengubah Teks dan Warna -->
+    <div class="task" id="tugas3">
+        <h2>Tugas 3: Tombol dengan Efek jQuery</h2>
+        <div class="task-description">
+            <p><strong>Deskripsi:</strong> Mengubah teks dan warna elemen ketika tombol diklik menggunakan jQuery.</p>
+        </div>
+        <button id="tombolKlik">Klik Saya!</button>
+        <p id="paragrafTombol">Teks akan berubah setelah tombol diklik</p>
+    </div>
+
+    <!-- Tugas 4: jQuery - Fade In/Out -->
+    <div class="task" id="tugas4">
+        <h2>Tugas 4: Menyembunyikan dan Menampilkan Kotak</h2>
+        <div class="task-description">
+            <p><strong>Deskripsi:</strong> Menyembunyikan dan menampilkan elemen dengan efek fade menggunakan jQuery.</p>
+        </div>
+        <button id="sembunyikan">Sembunyikan</button>
+        <button id="tampilkan">Tampilkan</button>
+        <div id="kotak"></div>
+    </div>
+
+    <script>
+        // Tugas 1: JavaScript - Menghitung Total Harga
+        const barang = [
+            { nama: "Susu UHT", harga: 42000, jumlah: 10 },
+            { nama: "Roti Tawar", harga: 30000, jumlah: 3 },
+            { nama: "Mie Instan", harga: 20000, jumlah: 5 },
+            { nama: "Sosis", harga: 51000, jumlah: 7 }
+        ];
+
+        // Menampilkan daftar barang
+        const listBarang = document.getElementById('listBarang');
+        barang.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'barang-item';
+            div.textContent = `${item.nama} — Rp ${item.harga.toLocaleString('id-ID')} × ${item.jumlah}`;
+            listBarang.appendChild(div);
+        });
+
+        // Fungsi untuk menghitung total harga
+        function hitungTotal() {
+            let total = 0;
+            barang.forEach(item => {
+                total += item.harga * item.jumlah;
+            });
+            document.getElementById('totalHarga').textContent = 
+                `Total harga pembelian adalah: Rp ${total.toLocaleString('id-ID')}`;
+        }
+
+        // Tugas 2: jQuery - Mengganti Teks
+        $(document).ready(function() {
+            $("#teks").text("Halo Dunia dengan jQuery!");
+        });
+
+        // Tugas 3: jQuery - Mengubah Teks dan Warna
+        $("#tombolKlik").click(function() {
+            $("#paragrafTombol")
+                .text("Tombol sudah diklik!")
+                .css({
+                    "color": "red",
+                    "background-color": "#ffe6e6",
+                    "border-color": "red",
+                    "font-weight": "bold"
+                });
+        });
+
+        // Tugas 4: jQuery - Fade In/Out
+        $("#sembunyikan").click(function() {
+            $("#kotak").fadeOut(1000);
+        });
+
+        $("#tampilkan").click(function() {
+            $("#kotak").fadeIn(1000);
+        });
+    </script>
+</body>
+</html>

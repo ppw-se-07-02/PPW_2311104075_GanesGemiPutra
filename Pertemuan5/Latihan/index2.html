@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>The JQuery Example</title>
+    <script src="jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("body").append("<p><h1>Hello</h1></p>");
+      });
+
+      $(document).ready(function () {
+        var hobi = ["Membaca", "Bersepeda", "Bermain Musik"];
+        $("#hasil").text("Hobi Favorit: " + hobi[1]);
+      });
+
+      $(document).ready(function () {
+        var a = 10;
+        var b = 5;
+        var hasil = a + b;
+        $("#output").html("Hasil Penjumlahan: " + hasil);
+      });
+
+      $(document).ready(function () {
+        var nilai = 75;
+
+        if (nilai >= 70) {
+          $("#hasil2").text("Selamat Anda Lulus!");
+          $("#hasil2").css("color", "green");
+        } else {
+          $("#hasil2").text("Maaf, Anda Tidak Lulus.");
+          $("#hasil2").css("color", "red");
+        }
+      });
+
+      $(document).ready(function () {
+        $("#hide").click(function () {
+          $("p").hide();
+        });
+        $("#show").click(function () {
+          $("p").show();
+        });
+      });
+
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("div").animate({ height: "toggle" });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="hasil"></div>
+    <div id="output"></div>
+    <div id="hasil2"></div>
+
+    <p>If you click on the "Hide" button, I will disappear.</p>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+
+    <p>Click the button multiple times to toggle the animation.</p>
+    <p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+    <div style="background: #98bf21; height: 100px; width: 100px; position: absolute"></div>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATIHAN5</title>
+</head>
+<body>
+    <h1>Demonstrasi Tipe Data Dasar di JavaScript</h1>
+    
+    <h2>Output Tipe Data</h2>
+    <div id="outputTipeData"></div>
+    
+    <h2>Output Alternatif</h2>
+    <div id="test"></div>
+
+    <h2>Array pada JavaScript</h2>
+    <div id="array"></div>
+
+    <h2>Demonstrasi Method Array</h2>
+    <div id="array2"></div>
+
+    <h2>Percabangan IF...ELSE IF...ELSE</h2>
+    <div id="outputPercabangan"></div>
+
+    <h2>Perulangan While</h2>
+    <div id="whileLoop"></div>
+
+    <h2>Perulangan For</h2>
+    <div id="forLoop"></div>
+
+    <h2>Perulangan Do-While</h2>
+    <div id="doWhileLoop"></div>
+
+    <h2>Operator Perbandingan</h2>
+    <div id="comparisonOperators"></div>
+
+    <h2>Pembuatan Object pada JavaScript</h2>
+    <div id="objectCreation"></div>
+
+    <h2>Akses Nilai Property</h2>
+    <p>Akses nilai properti dapat dilakukan dengan dua cara, yaitu.</p>
+    <ol>
+        <li>Penggunaan kurung siku ([]) setelah nama objek. Kurung siku kemudian diisikan dengan nama properti, yang harus berupa string. Cara ini biasanya digunakan untuk nama properti yang adalah nama ilegal atau kata kunci Javascript.</li>
+        <li>Penggunaan tanda titik (.) setelah nama objek diikuti dengan nama properti. Notasi ini merupakan notasi yang umum digunakan pada bahasa pemrograman lainnya. Notasi ini tidak dapat digunakan untuk nama ilegal atau kata kunci Javascript.</li>
+    </ol>
+    <p>Sebagai bahasa dinamis, Javascript tidak akan melemparkan pesan kesalahan jika kita mengakses properti yang tidak ada dalam objek. Kita akan menerima nilai undefined jika mengakses properti yang tidak ada.</p>
+    <div id="outputObject"></div>
+
+    <h2>Prototype pada JavaScript</h2>
+    <p>Pada Javascript yang mengimplementasikan PBO kita tidak lagi perlu menuliskan kelas, dan langsung melakukan penurunan terhadap objek. Misalkan kita memiliki objek mobil yang sederhana seperti berikut:</p>
+    <p>Kita dapat langsung menurunkan objek tersebut dengan menggunakan fungsi Object.create seperti berikut:</p>
+    <div id="outputTruk"></div>
+
+    <h2>Pemanggilan Fungsi</h2>
+    <p>Sebuah fungsi dapat dipanggil untuk menjalankan seluruh kode yang ada di dalam fungsi tersebut, sesuai dengan parameter yang kita berikan. Pemanggilan fungsi dilakukan dengan cara menuliskan nama fungsi tersebut, kemudian mengisikan argumen yang ada di dalam tanda kurung.</p>
+    <p>Misalkan fungsi tambah yang kita buat pada bagian sebelumnya: dapat dipanggil seperti berikut:</p>
+    <p>Yang terjadi pada kode di atas adalah nilai a dan b masing-masing digantikan dengan 3 dan 5. Seperti yang dapat dilihat, hal ini berarti pengisian argumen pada saat pemanggilan fungsi harus berurut sesuai dengan deklarasi fungsi.</p>
+    <p>Sama seperti sebuah variabel, fungsi juga mengembalikan nilai ketika dipanggil. Dalam kasus di atas, tambah(3, 5) akan mengembalikan nilai 8. Nilai ini tentunya dapat disimpan ke dalam variabel baru, atau bahkan dikirimkan sebagai sebuah argumen ke fungsi lain lagi:</p>
+    <p>Fungsi akan mengembalikan nilai ketika kata kunci return ditemukan. Pengembalian nilai fungsi dapat dilakukan kapanpun, dan fungsi akan segera berhenti ketika kata kunci return ditemukan. Berikut adalah contoh kode yang memberikan gambaran tentang pengembalian nilai fungsi:</p>
+    <div id="functionCall"></div>
+
+    <h2>Return dengan Ekspresi Langsung</h2>
+    <p>Sebuah ekspresi dapat juga diberikan langsung kepada keyword return, dan ekspresi tersebut akan dijalankan sebelum nilai dikembalikan. Hal ini berarti fungsi tambah maupun naikkan yang sebelumnya bisa disederhanakan dengan tidak lagi menyimpan nilai di variabel hasil terlebih dahulu:</p>
+    <div id="hasilTambah"></div>
+    <div id="hasilKali"></div>
+
+    <script>
+        // Deklarasi berbagai tipe data dasar
+        var angka = 42; // Number
+        var teks = "Ahmad Ruslan"; // String
+        var benar = true; // Boolean
+        var salah = false; // Boolean
+        var kosong = null; // Null
+        var tidakDidefinisikan; // Undefined
+        var daftar = ["apel", "pisang", "mangga"]; // Array
+        var tanggal = new Date(); // Date (objek tanggal)
+        var pola = /[A-Z]/; // RegExp (regular expression)
+        var orang = { nama: "Ruslan", umur: 21 }; // Object
+        
+        // Gabungkan hasil ke satu variabel string
+        var hasil = "";
+        hasil += "<b>Number:</b> " + angka + "<br>";
+        hasil += "<b>String:</b> " + teks + "<br>";
+        hasil += "<b>Boolean 1:</b> " + benar + "<br>";
+        hasil += "<b>Boolean 0:</b> " + salah + "<br>";
+        hasil += "<b>Null:</b> " + kosong + "<br>";
+        hasil += "<b>Undefined:</b> " + tidakDidefinisikan + "<br>";
+        hasil += "<b>Array:</b> " + daftar.join(", ") + "<br>";
+        hasil += "<b>Date:</b> " + tanggal + "<br>";
+        hasil += "<b>RegExp:</b> " + pola + ", Ini Sirsak = " + pola.test("Sirsak") + "<br>";
+        hasil += "<b>Object:</b> nama = " + orang.nama + ", umur = " + orang.umur + "<br>";
+        
+        // Tampilkan hasil di halaman
+        document.getElementById("outputTipeData").innerHTML = hasil;
+        
+        // Atau tampilkan dengan cara lainnya seperti:
+        var nama = "Dewi";
+        var umur = 21;
+        var isMahasiswa = true;
+        document.getElementById("test").innerHTML =
+         "Nama: " + nama + "<br>" +
+         "Umur: " + umur + "<br>" +
+         "Mahasiswa: " + isMahasiswa;
+
+        // Demonstrasi Array
+        var data = ["Satu", 2, true, "Tiga", 4]; // Array dengan tipe data campuran
+        var arr2 = [["satu", "dua"], ["tiga", "empat"]]; // Array 2D
+        document.getElementById("array").innerHTML =
+         "Elemen pertama: " + data[0] + "<br>" +
+         "Elemen ketiga: " + data[2] + "<br>" +
+         "Isi arr2: " + arr2 + "<br>" +
+         "Elemen arr2[0][1]: " + arr2[0][1] + "<br>" +
+         "data[10]: " + data[10]; // mengembalikan undefined
+
+        // Demonstrasi Method Array
+        var data2 = ["pisang", "apel", "mangga"];
+        // Menampilkan hasil ke HTML
+        document.getElementById("array2").innerHTML =
+         "Isi awal array: " + data2 + "<br>" +
+         "Panjang awal array: " + data2.length + "<br><br>" +
+         // Menambahkan elemen baru
+         "Menambahkan durian (push): " + data2.push("durian") + "<br>" +
+         "Isi array setelah push: " + data2 + "<br>" +
+         // Menghapus elemen terakhir
+         "Menghapus elemen terakhir (pop): " + data2.pop() + "<br>" +
+         "Isi array setelah pop: " + data2 + "<br>";
+
+        // Pengendalian Struktur - Percabangan
+        var pendidikan = "S2";
+        var gelar;
+        if (pendidikan === "S1") {
+         gelar = "Sarjana";
+        } else if (pendidikan === "S2") {
+         gelar = "Master";
+        } else if (pendidikan === "S3") {
+         gelar = "Doktor";
+        } else {
+         gelar = "Tidak diketahui";
+        }
+        document.getElementById("outputPercabangan").innerHTML =
+         "Sekarang kamu: " + pendidikan + ", gelar kamu: " + gelar;
+
+        // Pengendalian Struktur - Perulangan while
+        var text1 = "";
+        var i = 0;
+        while (i < 3) {
+         text1 += "Perulangan while ke-" + i + "<br>"; // Tambah teks dengan nomor perulangan
+         i++; // Increment i by 1
+        }
+        document.getElementById("whileLoop").innerHTML = text1;
+
+        // Pengendalian Struktur - Perulangan for
+        var text2 = "";
+        for (var j = 0; j < 3; j++) {
+         text2 += "Perulangan for ke-" + j + "<br>";
+        }
+        document.getElementById("forLoop").innerHTML = text2;
+
+        // Pengendalian Struktur - Perulangan do-while
+        var text3 = "";
+        var k = 0;
+        do {
+         text3 += "Perulangan do-while ke-" + k + "<br>";
+         k++;
+        } while (k < 3);
+        document.getElementById("doWhileLoop").innerHTML = text3;
+
+        // Operator Perbandingan
+        var hasilPerbandingan = "";
+        hasilPerbandingan += "5 == '5': " + (5 == '5') + "<br>"; // true (type coercion)
+        hasilPerbandingan += "5 === '5': " + (5 === '5') + "<br>"; // false (strict equality)
+        hasilPerbandingan += "0 == false: " + (0 == false) + "<br>"; // true (type coercion)
+        hasilPerbandingan += "0 === false: " + (0 === false) + "<br>"; // false (strict equality)
+        hasilPerbandingan += "null == undefined: " + (null == undefined) + "<br>"; // true (type coercion)
+        hasilPerbandingan += "null === undefined: " + (null === undefined) + "<br>"; // false (strict equality)
+        document.getElementById("comparisonOperators").innerHTML = hasilPerbandingan;
+
+        // Pembuatan Object pada JavaScript
+        var objek_kosong = {};
+        var mobil = {
+         "warna-badan": "merah", // properti dengan nama mengandung tanda hubung
+         "nomor-polisi": "BK1234AB",
+         merk: "Toyota", // properti dengan nama biasa
+         tahun: 2020,
+         jumlahBan: 4
+        };
+        var jadwal = {
+         platform: 34,
+         telah_berangkat: false,
+         tujuan: "Medan",
+         asal: "Jakarta"
+        };
+        var objectUtama = {
+         properti1: "nilai1",
+         properti2: 42,
+         propertiAnak: {
+          subProperti1: "nilaiA",
+          subProperti2: "nilaiB"
+         }
+        };
+        // Nested Object
+        var jadwalLengkap = {
+         platform: 34,
+         telah_berangkat: false,
+         asal: {
+          kode_kota: "MDN",
+          nama_kota: "Medan",
+          waktu: "2023-12-29 14:00"
+         },
+         tujuan: {
+          kode_kota: "JKT",
+          nama_kota: "Jakarta",
+          waktu: "2023-12-29 17:30"
+         }
+        };
+
+        var hasilObject = "";
+        hasilObject += "Objek kosong: " + JSON.stringify(objek_kosong) + "<br><br>";
+        hasilObject += "Mobil: " + JSON.stringify(mobil) + "<br><br>";
+        hasilObject += "Jadwal: " + JSON.stringify(jadwal) + "<br><br>";
+        hasilObject += "Object Utama: " + JSON.stringify(objectUtama) + "<br><br>";
+        hasilObject += "Jadwal Lengkap (Nested): " + JSON.stringify(jadwalLengkap) + "<br><br>";
+        document.getElementById("objectCreation").innerHTML = hasilObject;
+
+        // Akses Nilai Property
+        document.getElementById("outputObject").innerHTML =
+         "Warna Mobil: " + mobil["warna-badan"] + "<br>" +
+         "Nomor Polisi: " + mobil["nomor-polisi"] + "<br>" +
+         "Merk: " + mobil.merk + "<br>" +
+         "Tahun: " + mobil.tahun + "<br>" +
+         "Asal: " + jadwalLengkap.asal.nama_kota + "<br>" +
+         "Tujuan: " + jadwalLengkap.tujuan.nama_kota + "<br>" +
+         "Properti tidak ada: " + mobil["jumlah-roda"];
+
+        // Prototype pada JavaScript
+        var mobil = { nama: "Mobil", jumlahBan: 4 };
+        var truk = Object.create(mobil);
+        truk["warna-badan"] = "kuning";
+        // Tambah properti baru
+        mobil.jumlahBan = 4;
+        mobil.bahanBakar = "Bensin";
+        mobil["warna-badan"] = "biru";
+        document.getElementById("outputTruk").innerHTML =
+         "Nama Truk: " + truk.nama + "<br>" +
+         "Jumlah Ban Truk: " + truk.jumlahBan + "<br>" +
+         "Warna Truk: " + truk["warna-badan"] + "<br>" +
+         "Bahan Bakar Mobil: " + mobil.bahanBakar;
+
+        // Pemanggilan Fungsi
+        function tambah(a, b) {
+         return a + b;
+        }
+        function kali(a, b) {
+         return a * b;
+        }
+        var naikkan = function (n) {
+         return n + 10;
+        }
+        // Pemanggilan fungsi dan penyimpanan hasilnya
+        var simpan = tambah(3, 5); // simpan = 8
+        var hasil1 = tambah(simpan, 2); // 8 + 2 = 10
+        var hasil2 = tambah(tambah(3, 5), 2); // (8) + 2 = 10
+        var hasil3 = tambah(tambah(2, 3), 4); // (5) + 4 = 9
+        // Tampilkan hasil ke HTML
+        document.getElementById("functionCall").innerHTML =
+         "Hasil dari tambah(3, 5) adalah " + tambah(3, 5) + "<br>" +
+         "Hasil dari kali(4, 5) adalah " + kali(4, 5) + "<br>" +
+         "var simpan = tambah(3, 5); // simpan === " + tambah(3, 5) + "<br>" +
+         "tambah(simpan, 2); // mengembalikan " + tambah(tambah(3, 5), 2) + "<br>" +
+         "tambah(tambah(3, 5), 2) // juga mengembalikan " + tambah(tambah(3, 5), 2) + "<br>" +
+         "tambah(tambah(2, 3), 4) // mengembalikan " + tambah(tambah(2, 3), 4) + "<br><br>" +
+         "Contoh fungsi dengan return yang menghentikan eksekusi:<br>" +
+         "naikkan(10); // mengembalikan " + naikkan(10) + "<br>" +
+         "naikkan(25); // mengembalikan " + naikkan(25);
+
+        // Tampilkan hasil ke HTML
+        document.getElementById("hasilTambah").innerHTML =
+         "tambah(3,5) = " + simpan + "<br>" +
+         "tambah(simpan,2) = " + hasil1 + "<br>" +
+         "tambah(tambah(3,5),2) = " + hasil2 + "<br>" +
+         "tambah(tambah(2,3),4) = " + hasil3;
+        document.getElementById("hasilKali").innerHTML =
+         "kali(4,5) = " + kali(4,5); // contoh fungsi ekspresi
+    </script>
+</body>
+</html>
