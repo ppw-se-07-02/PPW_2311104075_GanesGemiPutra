@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokoGahar - Detail Produk</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <style>
+        /* ===== VARIABLES ===== */
+        :root {
+            --primary-color: #3498db;
+            --primary-dark: #2980b9;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --gray-color: #95a5a6;
+            --shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* ===== BASE STYLES ===== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ed 100%);
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        /* ===== BACK BUTTON ===== */
+        .back-btn {
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            font-weight: 600;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* ===== PRODUCT HERO SECTION ===== */
+        .product-hero {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin: 30px 0;
+        }
+
+        /* ===== IMAGE GALLERY ===== */
+        .image-gallery {
+            position: relative;
+            background: #f8f9fa;
+            padding: 30px;
+        }
+
+        .main-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            background: white;
+            padding: 20px;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .main-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .image-thumbnails {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 3px solid transparent;
+            background: white;
+            padding: 4px;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        /* ===== PRODUCT INFO ===== */
+        .product-info {
+            padding: 40px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        }
+
+        .product-badge {
+            background: linear-gradient(135deg, var(--accent-color), #e67e22);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .product-subtitle {
+            color: var(--gray-color);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .price-section {
+            margin: 25px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .current-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .original-price {
+            font-size: 1.3rem;
+            color: var(--gray-color);
+            text-decoration: line-through;
+            margin-bottom: 10px;
+        }
+
+        .discount-badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* ===== FEATURES GRID ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* ===== PURCHASE CARD ===== */
+        .purchase-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            position: sticky;
+            top: 120px;
+            border: 1px solid #e9ecef;
+        }
+
+        .purchase-card-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .stock-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--success-color);
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .stock-status.out-of-stock {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--accent-color);
+        }
+
+        /* ===== QUANTITY SELECTOR ===== */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: bold;
+        }
+
+        .quantity-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* ===== ACTION BUTTONS ===== */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .btn-buy-now {
+            flex: 2;
+            background: linear-gradient(135deg, var(--success-color), #2ecc71);
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-buy-now:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+
+        .btn-cart {
+            flex: 1;
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .btn-cart:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-wishlist {
+            width: 50px;
+            background: white;
+            border: 2px solid #e74c3c;
+            color: #e74c3c;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .btn-wishlist:hover,
+        .btn-wishlist.active {
+            background: #e74c3c;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* ===== DELIVERY INFO ===== */
+        .delivery-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+        }
+
+        .delivery-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .delivery-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .delivery-icon {
+            color: var(--success-color);
+            font-size: 1.2rem;
+        }
+
+        /* ===== PRODUCT TABS ===== */
+        .product-tabs {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+            overflow: hidden;
+        }
+
+        .tab-header {
+            display: flex;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 20px 30px;
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 600;
+            transition: var(--transition);
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            background: rgba(255,255,255,0.1);
+            border-bottom-color: white;
+        }
+
+        .tab-content {
+            padding: 40px;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* ===== SPECIFICATIONS ===== */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-name {
+            color: var(--gray-color);
+            font-weight: 500;
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* ===== REVIEWS ===== */
+        .review-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+        }
+
+        .review-date {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RELATED PRODUCTS ===== */
+        .related-products {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 2px;
+        }
+
+        /* ===== WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in { animation: fadeIn 0.6s ease; }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .purchase-card { position: static; margin-top: 30px; }
+            .product-title { font-size: 1.8rem; }
+            .current-price { font-size: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .product-hero { margin: 15px 0; }
+            .action-buttons { flex-direction: column; }
+            .tab-btn { padding: 15px 20px; }
+            .tab-content { padding: 25px; }
+        }
+
+        @media (max-width: 576px) {
+            .product-info { padding: 25px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .specs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-laptop-code fa-2x me-3"></i>
+                    <a class="navbar-brand mb-0 h1 fw-bold">TokoGahar</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link text-white fw-semibold">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white fw-semibold">Produk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white fw-semibold">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white fw-semibold position-relative action-btn" id="cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="badge bg-danger" id="cart-badge" style="display: none; z-index: 1000; min-width: 24px; height: 24px; line-height: 22px; font-size: 12px; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Tombol Back -->
+    <section class="back-section py-3">
+        <div class="container">
+            <button class="btn btn-outline-primary back-btn" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left me-2"></i> Kembali ke Beranda
+            </button>
+        </div>
+    </section>
+
+    <!-- Product Hero Section -->
+    <div class="container">
+        <div class="product-hero fade-in">
+            <div class="row g-0">
+                <!-- Image Gallery -->
+                <div class="col-lg-7">
+                    <div class="image-gallery">
+                        <div class="main-image">
+                            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="ASUS ROG Strix G18" id="mainImage">
+                        </div>
+                        <div class="image-thumbnails">
+                            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=200&q=60" 
+                                 class="thumbnail active" alt="Tampak Depan" data-image="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=200&q=60" 
+                                 class="thumbnail" alt="Tampak Samping" data-image="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwa2V5Ym9hcmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=200&q=60" 
+                                 class="thumbnail" alt="Keyboard" data-image="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwa2V5Ym9hcmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80">
+                            <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wJTIwcG9ydHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=200&q=60" 
+                                 class="thumbnail" alt="Ports" data-image="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGFwdG9wJTIwcG9ydHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info & Purchase Card -->
+                <div class="col-lg-5">
+                    <div class="product-info">
+                        <span class="product-badge">BEST SELLER</span>
+                        <h1 class="product-title">ASUS ROG Strix G18</h1>
+                        <p class="product-subtitle">Laptop Gaming Flagship dengan Performa Terbaik</p>
+                        
+                        <div class="price-section">
+                            <div class="current-price">Rp 42.999.000</div>
+                            <div class="original-price">Rp 49.999.000</div>
+                            <span class="discount-badge">Hemat 14%</span>
+                        </div>
+
+                        <div class="stock-status">
+                            <i class="fas fa-check-circle"></i>
+                            Stok Tersedia (15 unit)
+                        </div>
+
+                        <!-- Features Grid -->
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div>
+                                    <strong>Intel i9-14900HX</strong>
+                                    <div class="text-muted small">Processor</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-desktop"></i>
+                                </div>
+                                <div>
+                                    <strong>RTX 4090</strong>
+                                    <div class="text-muted small">Graphics</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-memory"></i>
+                                </div>
+                                <div>
+                                    <strong>32GB RAM</strong>
+                                    <div class="text-muted small">Memory</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-hdd"></i>
+                                </div>
+                                <div>
+                                    <strong>2TB SSD</strong>
+                                    <div class="text-muted small">Storage</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Purchase Card -->
+                    <div class="purchase-card">
+                        <div class="purchase-card-header">
+                            <h4 class="mb-3">Beli Sekarang</h4>
+                            <div class="stock-status">
+                                <i class="fas fa-shipping-fast"></i>
+                                Gratis Ongkir & Pengembalian
+                            </div>
+                        </div>
+
+                        <!-- Quantity Selector -->
+                        <div class="quantity-selector">
+                            <span class="fw-semibold">Jumlah:</span>
+                            <div class="d-flex align-items-center gap-2">
+                                <button class="quantity-btn" id="decreaseQty">-</button>
+                                <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                                <button class="quantity-btn" id="increaseQty">+</button>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button class="btn btn-buy-now text-white" onclick="window.location.href='pembelian.html'">
+                                <i class="fas fa-bolt me-2"></i>BELI SEKARANG
+                            </button>
+                            <button class="btn btn-cart" id="addToCart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                            <button class="btn btn-wishlist" id="wishlistBtn">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+
+                        <!-- Delivery Info -->
+                        <div class="delivery-info">
+                            <div class="delivery-item">
+                                <i class="fas fa-shipping-fast delivery-icon"></i>
+                                <div>
+                                    <strong>Gratis Pengiriman</strong>
+                                    <div class="text-muted small">Sampai dalam 2-3 hari</div>
+                                </div>
+                            </div>
+                            <div class="delivery-item">
+                                <i class="fas fa-undo delivery-icon"></i>
+                                <div>
+                                    <strong>Garansi 2 Tahun</strong>
+                                    <div class="text-muted small">Service center resmi</div>
+                                </div>
+                            </div>
+                            <div class="delivery-item">
+                                <i class="fas fa-shield-alt delivery-icon"></i>
+                                <div>
+                                    <strong>100% Original</strong>
+                                    <div class="text-muted small">Produk garansi internasional</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tab-header">
+                <button class="tab-btn active" data-tab="description">Deskripsi</button>
+                <button class="tab-btn" data-tab="specifications">Spesifikasi</button>
+                <button class="tab-btn" data-tab="reviews">Ulasan (28)</button>
+                <button class="tab-btn" data-tab="support">Dukungan</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Description Tab -->
+                <div class="tab-pane active" id="description">
+                    <h3 class="mb-4">Tentang Produk</h3>
+                    <p class="lead mb-4">ASUS ROG Strix G18 adalah laptop gaming flagship yang dirancang untuk memberikan pengalaman gaming terbaik. Dengan kombinasi processor Intel Core i9 generasi terbaru dan GPU NVIDIA GeForce RTX 4090, laptop ini mampu menjalankan semua game AAA dengan setting maksimal.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Fitur Utama:</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Performa gaming tanpa kompromi</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Sistem pendingin ROG Intelligent Cooling</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Layar QHD+ 240Hz yang memukau</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Desain RGB yang dapat dikustomisasi</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Keunggulan:</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i> Build quality premium</li>
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i> Audio Dolby Atmos immersive</li>
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i> Port lengkap dan modern</li>
+                                <li class="mb-2"><i class="fas fa-star text-warning me-2"></i> Baterai tahan lama</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specifications Tab -->
+                <div class="tab-pane" id="specifications">
+                    <h3 class="mb-4">Spesifikasi Teknis</h3>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <span class="spec-name">Processor</span>
+                            <span class="spec-value">Intel Core i9-14900HX</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Graphics</span>
+                            <span class="spec-value">NVIDIA GeForce RTX 4090 16GB</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">RAM</span>
+                            <span class="spec-value">32GB DDR5 5600MHz</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Storage</span>
+                            <span class="spec-value">2TB NVMe PCIe 4.0 SSD</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Display</span>
+                            <span class="spec-value">18" QHD+ 240Hz IPS</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Keyboard</span>
+                            <span class="spec-value">RGB Per-key, 1.9mm travel</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Ports</span>
+                            <span class="spec-value">Thunderbolt 4, USB 3.2, HDMI 2.1</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Connectivity</span>
+                            <span class="spec-value">Wi-Fi 6E, Bluetooth 5.3</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Battery</span>
+                            <span class="spec-value">90Wh, 330W Adapter</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-name">Weight</span>
+                            <span class="spec-value">2.8 kg</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-pane" id="reviews">
+                    <h3 class="mb-4">Ulasan Pelanggan</h3>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">AR</div>
+                                <div>
+                                    <h6 class="mb-1">Ahmad Rizki</h6>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="review-date">2 hari yang lalu</span>
+                        </div>
+                        <p class="mb-0">Laptop keren banget! Semua game bisa dijalankan dengan setting maksimal tanpa lag. Desainnya juga sangat gaming banget. Pendinginannya sangat efektif meski dipakai gaming berjam-jam.</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">BS</div>
+                                <div>
+                                    <h6 class="mb-1">Budi Santoso</h6>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="review-date">1 minggu yang lalu</span>
+                        </div>
+                        <p class="mb-0">Performanya memang gahar sesuai namanya. Harga lumayan tinggi tapi worth it untuk kualitas yang didapat. Layarnya sangat jernih dan responsif untuk gaming FPS.</p>
+                    </div>
+                </div>
+
+                <!-- Support Tab -->
+                <div class="tab-pane" id="support">
+                    <h3 class="mb-4">Dukungan & Layanan</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Garansi</h5>
+                            <p>Garansi resmi 2 tahun dari ASUS dengan coverage internasional. Service center tersedia di seluruh Indonesia.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Bantuan Teknis</h5>
+                            <p>Tim support kami siap membantu 24/7 melalui chat, telepon, atau email untuk segala pertanyaan teknis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <h2 class="section-title">Produk Terkait</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="ASUS TUF Gaming">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">ASUS TUF Gaming F15</h5>
+                            <p class="card-text text-primary fw-bold">Rp 18.499.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxhcHRvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="ROG Zephyrus">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">ROG Zephyrus M16</h5>
+                            <p class="card-text text-primary fw-bold">Rp 35.999.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwa2V5Ym9hcmR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="MSI Raider">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">MSI Raider GE78</h5>
+                            <p class="card-text text-primary fw-bold">Rp 38.999.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Lengkap -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <!-- Informasi Kontak -->
+                <div class="col-lg-4 col-md-6 footer-section">
+                    <h5>Kontak Kami</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Alamat Toko</strong><br>
+                                Jl. Teknologi No. 123, Cyber Park<br>
+                                Jakarta Selatan 12540
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Telepon</strong><br>
+                                (021) 4567-8900
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@tokogahar.com
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Jam Operasional</strong><br>
+                                Senin - Minggu: 09:00 - 21:00 WIB
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Link Cepat -->
+                <div class="col-lg-2 col-md-6 footer-section">
+                    <h5>Link Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Katalog Produk</a></li>
+                        <li><a href="#">Promo & Diskon</a></li>
+                        <li><a href="#">Blog & Artikel</a></li>
+                        <li><a href="#">Karir</a></li>
+                    </ul>
+                </div>
+
+                <!-- Layanan -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h5>Layanan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Garansi Produk</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Pembayaran</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">Servis & Perbaikan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h5>Newsletter</h5>
+                    <p>Dapatkan info promo dan produk terbaru langsung ke email Anda</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Alamat email Anda">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="store-hours">
+                        <p><strong>Layanan Pelanggan</strong></p>
+                        <p>📞 0800-1234-5678</p>
+                        <p>🕒 24/7 Support</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2025 TokoGahar. All rights reserved. by GanesGemiPutra_2311104075</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-end payment-methods">
+                            <img src="assets/img/PotoLogoVISA-BANK/Visa.png" alt="Visa" class="payment-logo" title="Visa">
+                            <img src="assets/img/PotoLogoVISA-BANK/Mastercard.png" alt="MasterCard" class="payment-logo" title="MasterCard">
+                            <img src="assets/img/PotoLogoVISA-BANK/BCA.png" alt="BCA" class="payment-logo" title="Bank BCA">
+                            <img src="assets/img/PotoLogoVISA-BANK/mandiri.png" alt="Mandiri" class="payment-logo" title="Bank Mandiri">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20TokoGahar,%20saya%20ingin%20bertanya%20tentang%20ASUS%20ROG%20Strix%20G18" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Konsultasi Produk">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

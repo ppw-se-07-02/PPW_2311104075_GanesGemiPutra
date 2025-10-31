@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokoGahar - Beranda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white shadow-sm sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-laptop-code fa-2x me-3"></i>
+                    <a class="navbar-brand mb-0 h1 fw-bold">TokoGahar</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link text-white fw-semibold active">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white fw-semibold">Produk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white fw-semibold">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white fw-semibold position-relative action-btn" id="cart-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="badge bg-danger" id="cart-badge" style="display: none; z-index: 1000; min-width: 24px; height: 24px; line-height: 22px; font-size: 12px; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Carousel Banner dengan Gambar -->
+    <section class="carousel-section">
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/img/Banner/AsusRog.png" class="d-block w-100" alt="Laptop Gaming">
+                    <div class="carousel-caption text-start">
+                        <h2>Laptop Gaming Terbaik</h2>
+                        <p>Dapatkan performa maksimal untuk gaming dan produktivitas</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/Banner/iPhone 17 Pro Max.png" class="d-block w-100" alt="Smartphone Flagship">
+                    <div class="carousel-caption text-center">
+                        <h2>Smartphone Flagship</h2>
+                        <p>Teknologi terkini dengan spesifikasi tinggi</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/img/Banner/CameraCanon.png" class="d-block w-100" alt="Kamera Profesional">
+                    <div class="carousel-caption text-end">
+                        <h2>Kamera Profesional</h2>
+                        <p>Abadikan momen terbaik dengan kualitas terbaik</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Kolom Pencarian -->
+    <section class="search-section py-4 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="input-group search-box">
+                        <input type="text" class="form-control form-control-lg" id="searchInput" placeholder="Cari produk..." onkeyup="searchProducts()">
+                        <button class="btn btn-primary btn-lg" type="button" onclick="searchProducts()">
+                            <i class="fas fa-search"></i> Cari
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Konten Utama -->
+    <main class="container my-5">
+        <div class="row">
+            <!-- Sidebar Rekomendasi -->
+            <aside class="col-lg-3 mb-4">
+                <div class="sidebar bg-white p-4 rounded shadow-sm">
+                    <h3 class="h5 mb-3 border-bottom pb-2">Rekomendasi</h3>
+                    <div class="recommendation-list">
+                        <div class="recommendation-item d-flex align-items-center mb-3 p-2 rounded hover-effect">
+                            <img src="assets/img/Laptop_img/ASUS ROG Strix G18.jpg" alt="ASUS ROG Strix" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-1">ASUS ROG Strix</h5>
+                                <p class="text-primary fw-bold mb-0">Rp 25.999.000</p>
+                            </div>
+                        </div>
+                        <div class="recommendation-item d-flex align-items-center mb-3 p-2 rounded hover-effect">
+                            <img src="assets/img/HP_img/Samsung Galaxy S25 Ultra.png" alt="Samsung S25 Ultra" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-1">Samsung S25 Ultra</h5>
+                                <p class="text-primary fw-bold mb-0">Rp 18.499.000</p>
+                            </div>
+                        </div>
+                        <div class="recommendation-item d-flex align-items-center mb-3 p-2 rounded hover-effect">
+                            <img src="assets/img/Canon_img/Canon EOS R5.png" alt="Canon EOS R5" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div>
+                                <h5 class="mb-1">Canon EOS R5</h5>
+                                <p class="text-primary fw-bold mb-0">Rp 42.999.000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Daftar Produk -->
+            <section class="col-lg-9" id="produk-terbaru">
+                <h2 class="h4 mb-4">Produk Terbaru</h2>
+                <div class="row">
+                    <!-- Product Card 1 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card product-card h-100 shadow-sm">
+                            <div class="card-img-container">
+                                <img src="assets/img/Laptop_img/ASUS ROG Strix G18.jpg" class="card-img-top" alt="ASUS ROG Strix G18">
+                                <div class="card-overlay">
+                                    <button class="btn btn-primary btn-sm quick-view" data-product-id="asus-rog-strix-g18">Lihat</button>
+                                </div>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">ASUS ROG Strix G18</h5>
+                                <p class="card-text text-muted small">Laptop Gaming Flagship</p>
+                                <div class="specs mb-2">
+                                    <span class="badge bg-light text-dark me-1">Intel i9-14900HX</span>
+                                    <span class="badge bg-light text-dark me-1">RTX 4090</span>
+                                    <span class="badge bg-light text-dark">32GB RAM</span>
+                                </div>
+                                <p class="card-text text-primary fw-bold mt-auto">Rp 42.999.000</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary detail-btn" onclick="window.location.href='detail.html'">
+                                        <i class="fas fa-info-circle me-1"></i> Detail
+                                    </button>
+                                    <button class="btn btn-success add-to-cart-btn" data-product-id="asus-rog-strix-g18">
+                                        <i class="fas fa-cart-plus me-1"></i> Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card product-card h-100 shadow-sm">
+                            <div class="card-img-container">
+                                <img src="assets/img/HP_img/Samsung Galaxy S25 Ultra.png" class="card-img-top" alt="Samsung Galaxy S25 Ultra">
+                                <div class="card-overlay">
+                                    <button class="btn btn-primary btn-sm quick-view" data-product-id="samsung-s25-ultra">Lihat</button>
+                                </div>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Samsung Galaxy S25 Ultra</h5>
+                                <p class="card-text text-muted small">Smartphone Flagship</p>
+                                <div class="specs mb-2">
+                                    <span class="badge bg-light text-dark me-1">Snapdragon 8 Gen 4</span>
+                                    <span class="badge bg-light text-dark me-1">Kamera 200MP</span>
+                                    <span class="badge bg-light text-dark">12GB RAM</span>
+                                </div>
+                                <p class="card-text text-primary fw-bold mt-auto">Rp 18.999.000</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary detail-btn" onclick="window.location.href='detail.html'">
+                                        <i class="fas fa-info-circle me-1"></i> Detail
+                                    </button>
+                                    <button class="btn btn-success add-to-cart-btn" data-product-id="samsung-s25-ultra">
+                                        <i class="fas fa-cart-plus me-1"></i> Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card product-card h-100 shadow-sm">
+                            <div class="card-img-container">
+                                <img src="assets/img/Canon_img/Canon EOS R5.png" class="card-img-top" alt="Canon EOS R5">
+                                <div class="card-overlay">
+                                    <button class="btn btn-primary btn-sm quick-view" data-product-id="canon-eos-r5">Lihat</button>
+                                </div>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Canon EOS R5</h5>
+                                <p class="card-text text-muted small">Kamera Mirrorless Profesional</p>
+                                <div class="specs mb-2">
+                                    <span class="badge bg-light text-dark me-1">45MP</span>
+                                    <span class="badge bg-light text-dark me-1">8K Video</span>
+                                    <span class="badge bg-light text-dark">Stabilizer 5-axis</span>
+                                </div>
+                                <p class="card-text text-primary fw-bold mt-auto">Rp 52.999.000</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary detail-btn" onclick="window.location.href='detail.html'">
+                                        <i class="fas fa-info-circle me-1"></i> Detail
+                                    </button>
+                                    <button class="btn btn-success add-to-cart-btn" data-product-id="canon-eos-r5">
+                                        <i class="fas fa-cart-plus me-1"></i> Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card product-card h-100 shadow-sm">
+                            <div class="card-img-container">
+                                <img src="assets/img/Laptop_img/ASUS TUF Gaming F15.png" class="card-img-top" alt="ASUS TUF Gaming F15">
+                                <div class="card-overlay">
+                                    <button class="btn btn-primary btn-sm quick-view" data-product-id="asus-tuf-gaming-f15">Lihat</button>
+                                </div>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">ASUS TUF Gaming F15</h5>
+                                <p class="card-text text-muted small">Laptop Gaming Mid-Range</p>
+                                <div class="specs mb-2">
+                                    <span class="badge bg-light text-dark me-1">Intel i7-13650HX</span>
+                                    <span class="badge bg-light text-dark me-1">RTX 4060</span>
+                                    <span class="badge bg-light text-dark">16GB RAM</span>
+                                </div>
+                                <p class="card-text text-primary fw-bold mt-auto">Rp 18.499.000</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary detail-btn" onclick="window.location.href='detail.html'">
+                                        <i class="fas fa-info-circle me-1"></i> Detail
+                                    </button>
+                                    <button class="btn btn-success add-to-cart-btn" data-product-id="asus-tuf-gaming-f15">
+                                        <i class="fas fa-cart-plus me-1"></i> Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card product-card h-100 shadow-sm">
+                            <div class="card-img-container">
+                                <img src="assets/img/Canon_img/Nikon Z9.png" class="card-img-top" alt="Nikon Z9">
+                                <div class="card-overlay">
+                                    <button class="btn btn-primary btn-sm quick-view" data-product-id="nikon-z9">Lihat</button>
+                                </div>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Nikon Z9</h5>
+                                <p class="card-text text-muted small">Kamera Flagship Profesional</p>
+                                <div class="specs mb-2">
+                                    <span class="badge bg-light text-dark me-1">45.7MP</span>
+                                    <span class="badge bg-light text-dark me-1">8K 60p Video</span>
+                                    <span class="badge bg-light text-dark">120 fps Burst</span>
+                                </div>
+                                <p class="card-text text-primary fw-bold mt-auto">Rp 62.999.000</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary detail-btn" onclick="window.location.href='detail.html'">
+                                        <i class="fas fa-info-circle me-1"></i> Detail
+                                    </button>
+                                    <button class="btn btn-success add-to-cart-btn" data-product-id="nikon-z9">
+                                        <i class="fas fa-cart-plus me-1"></i> Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card product-card h-100 shadow-sm">
+                            <div class="card-img-container">
+                                <img src="assets/img/HP_img/iPhone 16 Pro Max.png" class="card-img-top" alt="iPhone 16 Pro Max">
+                                <div class="card-overlay">
+                                    <button class="btn btn-primary btn-sm quick-view" data-product-id="iphone-16-pro-max">Lihat</button>
+                                </div>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">iPhone 16 Pro Max</h5>
+                                <p class="card-text text-muted small">Smartphone Premium</p>
+                                <div class="specs mb-2">
+                                    <span class="badge bg-light text-dark me-1">A18 Pro Chip</span>
+                                    <span class="badge bg-light text-dark me-1">Kamera 48MP</span>
+                                    <span class="badge bg-light text-dark">Titanium Design</span>
+                                </div>
+                                <p class="card-text text-primary fw-bold mt-auto">Rp 22.999.000</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary detail-btn" onclick="window.location.href='detail.html'">
+                                        <i class="fas fa-info-circle me-1"></i> Detail
+                                    </button>
+                                    <button class="btn btn-success add-to-cart-btn" data-product-id="iphone-16-pro-max">
+                                        <i class="fas fa-cart-plus me-1"></i> Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Lengkap -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row">
+                <!-- Informasi Kontak -->
+                <div class="col-lg-4 col-md-6 footer-section">
+                    <h5>Kontak Kami</h5>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Alamat Toko</strong><br>
+                                Jl. Teknologi No. 123, Cyber Park<br>
+                                Jakarta Selatan 12540
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Telepon</strong><br>
+                                (021) 4567-8900
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@tokogahar.com
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Jam Operasional</strong><br>
+                                Senin - Minggu: 09:00 - 21:00 WIB
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Link Cepat -->
+                <div class="col-lg-2 col-md-6 footer-section">
+                    <h5>Link Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Katalog Produk</a></li>
+                        <li><a href="#">Promo & Diskon</a></li>
+                        <li><a href="#">Blog & Artikel</a></li>
+                        <li><a href="#">Karir</a></li>
+                    </ul>
+                </div>
+
+                <!-- Layanan -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h5>Layanan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Garansi Produk</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Pembayaran</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">Servis & Perbaikan</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h5>Newsletter</h5>
+                    <p>Dapatkan info promo dan produk terbaru langsung ke email Anda</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Alamat email Anda">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="store-hours">
+                        <p><strong>Layanan Pelanggan</strong></p>
+                        <p>📞 0800-1234-5678</p>
+                        <p>🕒 24/7 Support</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2025 TokoGahar. All rights reserved. by GanesGemiPutra_2311104075</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-end payment-methods">
+                            <img src="assets/img/PotoLogoVISA-BANK/Visa.png" alt="Visa" class="payment-logo" title="Visa">
+                            <img src="assets/img/PotoLogoVISA-BANK/Mastercard.png" alt="MasterCard" class="payment-logo" title="MasterCard">
+                            <img src="assets/img/PotoLogoVISA-BANK/BCA.png" alt="BCA" class="payment-logo" title="Bank BCA">
+                            <img src="assets/img/PotoLogoVISA-BANK/mandiri.png" alt="Mandiri" class="payment-logo" title="Bank Mandiri">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20TokoGahar,%20saya%20ingin%20konsultasi%20tentang%20produk" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Konsultasi via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">Konsultasi via WhatsApp</div>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
