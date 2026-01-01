@@ -1,0 +1,276 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+}
+
+/* Header */
+header {
+  background-color: white;
+  color: purple;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+header .header-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: purple;
+  margin: 0;
+}
+
+.logo-img {
+  width: 16px;
+  height: 16px;
+  margin-bottom: 5px;
+}
+
+.logo-date {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul.menu li a {
+  color: purple;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+nav ul.menu li a:hover {
+  text-decoration: underline;
+}
+
+/* Banner */
+.banner {
+  position: relative;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: purple;
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: lowercase;
+  letter-spacing: 5px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Konten */
+.konten {
+  display: flex;
+  width: 90%;
+  margin: 20px auto;
+}
+
+/* Produk */
+.produk {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.produk .item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: left;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.produk img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.produk h4 {
+  font-size: 14px;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.produk .price {
+  color: #d10060;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  font-size: 14px;
+}
+
+.produk .desc {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 3px 0;
+}
+
+.produk .stock {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+/* Recommended Products */
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.recommended-product {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.recommended-product .product-image {
+  position: relative;
+}
+
+.recommended-product img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.recommended-product .overlay-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  color: #333;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.recommended-product:hover .overlay-info {
+  opacity: 1;
+}
+
+.recommended-product .product-name {
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.recommended-product .product-rating {
+  margin-bottom: 5px;
+}
+
+.recommended-product .product-price .price {
+  color: #d10060;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Footer */
+footer {
+  background-color: #f2f2f2;
+  margin-top: 40px;
+  padding: 20px 0;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-box h4 {
+  color: purple;
+  margin-bottom: 10px;
+}
+
+.footer-box p {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.footer-box a {
+  text-decoration: none;
+  color: #0056b3;
+  font-size: 14px;
+}
+
+.footer-box a:hover {
+  text-decoration: underline;
+}

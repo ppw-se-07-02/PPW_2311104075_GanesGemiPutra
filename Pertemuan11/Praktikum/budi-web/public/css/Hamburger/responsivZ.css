@@ -1,0 +1,16 @@
+/* Minor responsive tweaks and fallbacks */
+
+/* Ensure container padding is friendly on small screens */
+@media (max-width: 768px) {
+  .container {
+    width: 94%;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content {
+    gap: 20px;
+  }
+}

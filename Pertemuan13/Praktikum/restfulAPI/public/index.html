@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Mahasiswa - UNGUIDED Modul 13</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Pengelolaan Data Mahasiswa</h1>
+    <p class="sub">Node.js + Express.js + MySQL | UNGUIDED Modul 13</p>
+
+    <div class="card">
+      <h2 id="formTitle">Tambah Mahasiswa</h2>
+
+      <form id="mhsForm">
+        <input type="hidden" id="id" />
+        <label>Nama</label>
+        <input id="nama" placeholder="Masukkan nama" required />
+
+        <label>NIM</label>
+        <input id="nim" placeholder="Masukkan NIM" required />
+
+        <label>Jurusan</label>
+        <input id="jurusan" placeholder="Masukkan jurusan" required />
+
+        <label>Email</label>
+        <input id="email" placeholder="Masukkan email" required />
+
+        <div class="row">
+          <button type="submit" id="btnSubmit">Simpan</button>
+          <button type="button" id="btnCancel" class="ghost hidden">Batal</button>
+        </div>
+      </form>
+      <div id="msg" class="msg"></div>
+    </div>
+
+    <div class="card table-card">
+      <div class="row-between">
+        <h2>Daftar Mahasiswa</h2>
+        <button id="btnRefresh" class="ghost">Refresh</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Nama</th><th>NIM</th><th>Jurusan</th><th>Email</th><th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr><td colspan="6">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

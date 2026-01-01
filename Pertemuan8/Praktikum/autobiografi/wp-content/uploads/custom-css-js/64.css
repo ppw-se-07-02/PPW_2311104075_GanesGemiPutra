@@ -1,0 +1,639 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* 
+ * Blog Telkom University Styles
+ * Paste this to WordPress Customizer > Additional CSS or Custom CSS & JS plugin
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --telkom-maroon: #a91f2f;
+  --telkom-accent: #e65967;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --bg-light: #f6f7fb;
+  --bg-white: #ffffff;
+  --border-radius: 16px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* Blog Base Styles */
+.tu-blog-portfolio {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Blog Hero Section */
+.tu-blog-hero {
+  background: linear-gradient(135deg, var(--telkom-maroon), var(--telkom-accent));
+  color: white;
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tu-blog-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+.tu-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tu-logo-img {
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: var(--transition);
+  border-radius: 8px;
+}
+
+.tu-logo-text {
+  text-align: left;
+}
+
+.tu-logo-university {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.tu-logo-campus {
+  font-size: 1rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.tu-blog-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.tu-blog-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Blog Layout */
+.blog-wrap {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Main Blog Content */
+.blog-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Image Placeholder Styles */
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #dee2e6;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+.image-placeholder:hover {
+  border-color: var(--telkom-maroon);
+  background: linear-gradient(135deg, #f0f4f8, #e3eaf3);
+}
+
+.placeholder-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.image-placeholder:hover .placeholder-text {
+  color: var(--telkom-maroon);
+}
+
+/* Featured Post */
+.featured-post {
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.featured-image {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.featured-image .image-placeholder {
+  min-height: 300px;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--telkom-maroon);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.featured-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.post-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  color: var(--telkom-maroon);
+  line-height: 1.3;
+}
+
+.post-excerpt {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--telkom-maroon);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+.read-more-btn:hover {
+  color: var(--telkom-accent);
+  gap: 0.75rem;
+}
+
+/* Blog Posts Grid */
+.blog-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.blog-post-card {
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.blog-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.post-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.post-image .image-placeholder {
+  height: 200px;
+}
+
+.post-content {
+  padding: 1.5rem;
+}
+
+.post-content .post-title {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.read-more-link {
+  color: var(--telkom-maroon);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.read-more-link:hover {
+  color: var(--telkom-accent);
+}
+
+/* Pagination */
+.blog-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pagination-btn {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e0e0e0;
+  background: var(--bg-white);
+  color: var(--text-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.pagination-btn:hover {
+  border-color: var(--telkom-maroon);
+  color: var(--telkom-maroon);
+}
+
+.pagination-btn.active {
+  background: var(--telkom-maroon);
+  color: white;
+  border-color: var(--telkom-maroon);
+}
+
+.pagination-dots {
+  padding: 0.75rem 0.5rem;
+  color: var(--text-secondary);
+}
+
+/* Sidebar */
+.blog-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 2rem;
+}
+
+.sidebar-widget {
+  background: var(--bg-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.sidebar-widget h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--telkom-maroon);
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+/* About Widget */
+.about-widget p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.author-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--bg-light);
+  border-radius: var(--border-radius);
+}
+
+.author-photo-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 2px dashed #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.author-photo-placeholder:hover {
+  border-color: var(--telkom-maroon);
+}
+
+.author-photo-placeholder .placeholder-text {
+  font-size: 0.7rem;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-info strong {
+  font-family: 'Poppins', sans-serif;
+  color: var(--telkom-maroon);
+  font-size: 0.9rem;
+}
+
+.author-info span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Categories Widget */
+.categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categories-list li {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.categories-list li:last-child {
+  border-bottom: none;
+}
+
+.categories-list a {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.categories-list a:hover {
+  color: var(--telkom-maroon);
+}
+
+.count {
+  background: var(--bg-light);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Recent Posts Widget */
+.recent-post-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recent-post-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.recent-post-item:first-child {
+  padding-top: 0;
+}
+
+.recent-post-image-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px dashed #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.recent-post-image-placeholder:hover {
+  border-color: var(--telkom-maroon);
+}
+
+.recent-post-image-placeholder .placeholder-text {
+  font-size: 0.8rem;
+}
+
+.recent-post-content h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.recent-post-content h4 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.recent-post-content h4 a:hover {
+  color: var(--telkom-maroon);
+}
+
+.post-date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Tags Widget */
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-light);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.tag:hover {
+  background: var(--telkom-maroon);
+  color: white;
+}
+
+/* Campus Badge */
+.campus-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--telkom-maroon);
+}
+
+.campus-logo {
+  height: 50px;
+  width: auto;
+  border-radius: 6px;
+}
+
+.campus-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.campus-info strong {
+  font-family: 'Poppins', sans-serif;
+  color: var(--telkom-maroon);
+  font-size: 0.9rem;
+}
+
+.campus-info span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .blog-wrap {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .blog-sidebar {
+    position: static;
+  }
+  
+  .featured-post {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tu-blog-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .tu-logo-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .tu-logo-text {
+    text-align: center;
+  }
+  
+  .tu-logo-university {
+    font-size: 1.5rem;
+  }
+  
+  .tu-blog-title {
+    font-size: 2rem;
+  }
+  
+  .blog-posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-pagination {
+    flex-wrap: wrap;
+  }
+  
+  .tu-logo-img {
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tu-blog-portfolio {
+    padding: 10px;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .campus-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .campus-logo {
+    height: 45px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .tu-blog-portfolio {
+    background: white;
+    padding: 0;
+    max-width: none;
+  }
+  
+  .tu-blog-hero {
+    background: #a91f2f !important;
+    color: black;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .blog-sidebar {
+    display: none;
+  }
+  
+  .blog-pagination {
+    display: none;
+  }
+}</style>
+<!-- end Simple Custom CSS and JS -->

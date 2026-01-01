@@ -1,0 +1,751 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* 
+ * CV Telkom University Styles
+ * Paste this to WordPress Customizer > Additional CSS or Custom CSS & JS plugin
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --telkom-maroon: #a91f2f;
+  --telkom-accent: #e65967;
+  --text-primary: #111111;
+  --text-secondary: #666666;
+  --bg-light: #f6f7fb;
+  --bg-white: #ffffff;
+  --border-radius: 16px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+.tu-cv-portfolio {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-light);
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero Section */
+.tu-hero {
+  background: linear-gradient(135deg, var(--telkom-maroon), var(--telkom-accent));
+  color: white;
+  padding: 2.5rem 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tu-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+}
+
+.tu-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tu-logo-img {
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: var(--transition);
+  border-radius: 8px;
+}
+
+.tu-logo-text {
+  text-align: left;
+}
+
+.tu-logo-university {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.tu-logo-campus {
+  font-size: 1rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.tu-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.tu-hero-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Layout */
+.cv-wrap {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Sidebar */
+.cv-sidebar {
+  background: var(--bg-white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 2rem;
+}
+
+.photo-wrap {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--telkom-maroon);
+  margin: 0 auto;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 25px rgba(169, 31, 47, 0.2);
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+  border-color: var(--telkom-accent);
+  box-shadow: 0 12px 35px rgba(169, 31, 47, 0.3);
+}
+
+/* Download Section */
+.download-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.download-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--telkom-maroon), var(--telkom-accent));
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(169, 31, 47, 0.3);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.download-cv-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(169, 31, 47, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.download-cv-btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.btn-text {
+  white-space: nowrap;
+}
+
+.download-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0.75rem 0 0 0;
+  font-style: italic;
+}
+
+.contact-info {
+  margin-bottom: 2rem;
+}
+
+.contact-info h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--telkom-maroon);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--bg-light);
+  padding-bottom: 0.5rem;
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.contact-text {
+  flex: 1;
+}
+
+/* Campus Badge */
+.campus-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--telkom-maroon);
+}
+
+.campus-logo {
+  height: 60px;
+  width: auto;
+  border-radius: 6px;
+}
+
+.campus-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.campus-info strong {
+  font-family: 'Poppins', sans-serif;
+  color: var(--telkom-maroon);
+  font-size: 0.9rem;
+}
+
+.campus-info span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Main Content */
+.cv-main {
+  background: var(--bg-white);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.cv-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+.cv-name-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cv-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--telkom-maroon);
+  margin: 0;
+}
+
+.campus-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-light);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--telkom-maroon);
+  border: 1px solid #e0e0e0;
+}
+
+.tag-logo {
+  height: 25px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.cv-title {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Sections */
+.about-section,
+.skills-section,
+.education-section,
+.projects-section {
+  margin-bottom: 2.5rem;
+}
+
+.about-section h3,
+.skills-section h3,
+.education-section h3,
+.projects-section h3 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--telkom-maroon);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--bg-light);
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.skill-bar {
+  grid-column: 1 / -1;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--telkom-maroon), var(--telkom-accent));
+  border-radius: 10px;
+  transition: width 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  width: 0%;
+  position: relative;
+}
+
+.skill-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+}
+
+.skill-percent {
+  font-weight: 600;
+  color: var(--telkom-maroon);
+}
+
+/* Education */
+.education-item {
+  background: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--telkom-maroon);
+}
+
+.edu-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.edu-logo {
+  height: 60px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 6px;
+}
+
+.edu-header h4 {
+  margin: 0 0 0.3rem 0;
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+}
+
+.edu-major {
+  color: var(--telkom-maroon);
+  font-weight: 500;
+  margin: 0 0 0.3rem 0;
+}
+
+.edu-year {
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.edu-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--bg-light);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--telkom-maroon);
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  border-color: var(--telkom-maroon);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover::before {
+  width: 6px;
+  background: var(--telkom-accent);
+}
+
+.project-card h4 {
+  color: var(--telkom-maroon);
+  margin: 0 0 0.5rem 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.project-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Modal */
+.photo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.photo-modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--telkom-maroon);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 1;
+}
+
+.modal-close:hover {
+  background: var(--telkom-accent);
+  transform: scale(1.1);
+}
+
+.modal-title {
+  font-family: 'Poppins', sans-serif;
+  color: var(--telkom-maroon);
+  margin: 0 0 1.5rem 0;
+}
+
+.modal-photo {
+  width: 100%;
+  max-width: 300px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.modal-footer {
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.student-info strong {
+  color: var(--telkom-maroon);
+  font-family: 'Poppins', sans-serif;
+}
+
+.student-info span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .cv-wrap {
+    grid-template-columns: 280px 1fr;
+    gap: 1.5rem;
+  }
+  
+  .tu-hero-title {
+    font-size: 2rem;
+  }
+  
+  .cv-name {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cv-wrap {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .cv-sidebar {
+    position: static;
+  }
+  
+  .tu-hero {
+    padding: 2rem 1rem;
+  }
+  
+  .tu-logo-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+  
+  .tu-logo-text {
+    text-align: center;
+  }
+  
+  .tu-logo-university {
+    font-size: 1.5rem;
+  }
+  
+  .tu-hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .cv-main {
+    padding: 1.5rem;
+  }
+  
+  .cv-name-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .campus-tag {
+    align-self: flex-start;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .photo-modal {
+    padding: 1rem;
+  }
+  
+  .download-cv-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Adjust logo sizes for mobile */
+  .tu-logo-img {
+    height: 70px;
+  }
+  
+  .campus-logo {
+    height: 50px;
+  }
+  
+  .tag-logo {
+    height: 20px;
+  }
+  
+  .edu-logo {
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tu-cv-portfolio {
+    padding: 10px;
+  }
+  
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cv-main {
+    padding: 1rem;
+  }
+  
+  .tu-logo-img {
+    height: 60px;
+  }
+  
+  .campus-badge {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .campus-logo {
+    height: 45px;
+  }
+  
+  .download-cv-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .tu-cv-portfolio {
+    background: white;
+    padding: 0;
+    max-width: none;
+  }
+  
+  .tu-hero {
+    background: #a91f2f !important;
+    color: black;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .download-cv-btn {
+    display: none;
+  }
+  
+  .cv-sidebar {
+    position: static;
+    break-inside: avoid;
+  }
+  
+  .skill-progress {
+    width: 100% !important;
+  }
+}</style>
+<!-- end Simple Custom CSS and JS -->

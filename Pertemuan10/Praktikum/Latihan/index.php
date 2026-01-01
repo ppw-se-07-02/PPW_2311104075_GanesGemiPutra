@@ -1,0 +1,498 @@
+<?php include 'koneksi.php'; ?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varsity Elite - Jaket Esport Indonesia</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link
+href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Bebas+Neue&family=Oswald:w
+ght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Header -->
+<header role="banner">
+<div class="header-container">
+<div class="logo-date-container">
+<div class="logo">
+
+<span>Varsity Esport</span>
+</div>
+<div id="live-date"></div>
+<div id="live-time"></div>
+</div>
+<nav role="navigation" aria-label="Main navigation">
+<ul>
+<li><a href="#" class="active">Beranda</a></li>
+<li><a href="#">Koleksi</a></li>
+<li><a href="#">Esport Teams</a></li>
+<li><a href="#">Custom Order</a></li>
+<li><a href="#">Tentang Kami</a></li>
+</ul>
+</nav>
+<div class="header-actions" role="search">
+<a href="#" class="search-btn"><i class="fas fa-search"></i></a>
+<input type="text" id="search-input" class="search-input" placeholder="produk apa yang anda cari?" aria-label="Search products" style="display:none;">
+<a href="#" class="wishlist-btn"><i class="fas fa-heart"></i><span class="count">3</span></a>
+<a href="#" class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="count">2</span></a>
+<button class="theme-toggle" aria-label="Toggle theme">☀️</button>
+<div class="user-menu">
+<div class="user-avatar">
+<i class="fas fa-user"></i>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Slider -->
+<section class="hero-slider" role="region" aria-label="Hero Slider">
+<div class="slider-container">
+<!-- Slide 1 -->
+<div class="slide">
+<div class="slide-content">
+<h1>Koleksi Eksklusif Jaket Varsity</h1>
+<p>Desain premium untuk tim esport Indonesia dengan kualitas terbaik</p>
+<a href="#" class="btn btn-primary">Lihat Koleksi</a>
+</div>
+<div class="slide-image">
+<img src="https://down-id.img.susercontent.com/file/id-11134201-7rbk5-m8x8ul4bxb81dd" alt="Jaket Varsity
+Esport" loading="lazy">
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="slide">
+<div class="slide-content">
+<h1>Custom Jaket Tim Esport</h1>
+<p>Buat jaket custom untuk tim esport Anda dengan logo dan warna khusus</p>
+<a href="#" class="btn btn-primary">Pesan Sekarang</a>
+</div>
+<div class="slide-image">
+<img src="https://down-id.img.susercontent.com/file/sg-11134201-23030-nfzhxfoumtovba" alt="Custom Jaket Esport" loading="lazy">
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="slide">
+<div class="slide-content">
+<h1>Material Premium & Nyaman</h1>
+<p>Dibuat dengan bahan berkualitas tinggi untuk kenyamanan maksimal</p>
+<a href="#" class="btn btn-primary">Pelajari Lebih</a>
+</div>
+<div class="slide-image">
+<img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lnmvr0qc02ddac" alt="Material Jaket
+Premium" loading="lazy">
+</div>
+</div>
+</div>
+<div class="slider-navigation">
+<button class="slider-nav-btn" id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+<button class="slider-nav-btn" id="next-slide"><i class="fas fa-chevron-right"></i></button>
+</div>
+<div class="slider-dots">
+<span class="slider-dot active" data-slide="0"></span>
+<span class="slider-dot" data-slide="1"></span>
+<span class="slider-dot" data-slide="2"></span>
+</div>
+</section>
+
+<!-- Banner -->
+<section class="banner" role="region" aria-label="Banner Promosi">
+  <div class="banner-image"></div>
+</section>
+<!-- Main Content -->
+<main class="main-container" role="main">
+<div class="content-wrapper">
+<!-- Produk Pilihan (Kiri) -->
+<section class="products-section featured-products" role="region" aria-label="Produk Pilihan">
+<div class="section-header">
+<h2><i class="fas fa-star"></i> Produk Pilihan</h2>
+<p>Koleksi jaket varsity terbaik dengan kualitas premium</p>
+</div>
+<div class="products-grid">
+    <?php
+    $qProduk = mysqli_query($koneksi, "SELECT * FROM produk LIMIT 4");
+    while ($p = mysqli_fetch_assoc($qProduk)) {
+    ?>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="uploads/<?= htmlspecialchars($p['gambar']) ?>"
+               alt="<?= htmlspecialchars($p['nama_produk']) ?>" loading="lazy">
+          <div class="product-actions">
+            <button class="action-btn wishlist-btn"><i class="fas fa-heart"></i></button>
+            <button class="action-btn view-btn"><i class="fas fa-expand"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <span class="product-category"><?= htmlspecialchars($p['kategori']) ?></span>
+          <h3 class="product-name"><?= htmlspecialchars($p['nama_produk']) ?></h3>
+          <div class="product-rating">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+            <span class="rating-value">4.5</span>
+          </div>
+          <div class="product-price">
+            <span class="price">Rp <?= number_format($p['harga'], 0, ',', '.') ?></span>
+            <button class="add-to-cart"><i class="fas fa-shopping-bag"></i></button>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
+</div>
+</section>
+<!-- Rekomendasi (Kanan) -->
+<aside class="products-section recommended-products" role="complementary" aria-label="Produk Rekomendasi">
+<div class="section-header">
+<h2><i class="fas fa-fire"></i> Rekomendasi</h2>
+<p>Jaket varsity terpopuler bulan ini</p>
+</div>
+<div class="products-list">
+<div class="recommended-product">
+<div class="product-image">
+<img src="https://down-id.img.susercontent.com/file/id-11134207-7r98q-lnmvr0qc02ddac" alt="Bigetron Varsity" loading="lazy">
+<div class="overlay-info">
+<h3 class="product-name">Bigetron Varsity</h3>
+<div class="product-rating">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="far fa-star"></i>
+</div>
+</div>
+<div class="product-price">
+<span class="price">Rp 579.000</span>
+</div>
+</div>
+</div>
+</div>
+<div class="recommended-product">
+<div class="product-image">
+<img src="https://tuturpedia.com/wp-content/uploads/Aboy-ditunjuk-jadi-jungler-Geek-Fam.png" alt="Geek Fam Varsity" loading="lazy">
+<div class="overlay-info">
+<h3 class="product-name">Geek Fam Varsity</h3>
+<div class="product-rating">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star-half-alt"></i>
+</div>
+</div>
+<div class="product-price">
+<span class="price">Rp 549.000</span>
+</div>
+</div>
+</div>
+</div>
+<div class="recommended-product">
+<div class="product-image">
+<img src="https://down-id.img.susercontent.com/file/id-11134207-7qul4-lkf9jk9wfmih7d" alt="Aura Fire Varsity" loading="lazy">
+<div class="overlay-info">
+<h3 class="product-name">Aura Fire Varsity</h3>
+<div class="product-rating">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+</div>
+<div class="product-price">
+<span class="price">Rp 599.000</span>
+</div>
+</div>
+</div>
+</div>
+<div class="recommended-product">
+<div class="product-image">
+<img src="https://down-id.img.susercontent.com/file/id-11134207-7r98u-lpu1xty8whsud8" alt="Rebellion Varsity" loading="lazy">
+<div class="overlay-info">
+<h3 class="product-name">Rebellion Varsity</h3>
+<div class="product-rating">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="far fa-star"></i>
+</div>
+</div>
+<div class="product-price">
+<span class="price">Rp 529.000</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Banner Iklan -->
+<div class="promo-banner" role="region" aria-label="Banner Promosi">
+<h3>Spesial Akhir Tahun</h3>
+<p>Dapatkan diskon 20% untuk pembelian 2 jaket varsity</p>
+<a href="#" class="btn btn-outline">Klaim Sekarang</a>
+</div>
+</aside>
+</div>
+<!-- Features Section -->
+<section class="features animate-on-scroll" role="region" aria-label="Fitur Layanan">
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-shipping-fast"></i>
+</div>
+<h3>Gratis Pengiriman</h3>
+<p>Nikmati gratis pengiriman untuk semua pesanan di atas Rp 500.000</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<h3>Garansi 2 Tahun</h3>
+<p>Semua produk kami dilengkapi dengan garansi resmi 2 tahun</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-headset"></i>
+</div>
+<h3>Dukungan 24/7</h3>
+<p>Tim customer service kami siap membantu Anda kapan saja</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<i class="fas fa-undo-alt"></i>
+</div>
+<h3>Pengembalian Mudah</h3>
+<p>Proses pengembalian produk yang cepat dan tanpa ribet</p>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="newsletter animate-on-scroll" role="region" aria-label="Newsletter Subscription">
+<h2>Bergabung dengan Newsletter Kami</h2>
+<p id="newsletter-description">Dapatkan informasi terbaru tentang produk eksklusif dan penawaran spesial hanya untuk member kami</p>
+<form class="newsletter-form" role="form" aria-describedby="newsletter-description">
+<input type="email" class="newsletter-input" placeholder="Masukkan alamat email Anda" aria-label="Email address">
+<button type="submit" class="newsletter-btn">Berlangganan</button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer role="contentinfo">
+<div class="footer-content">
+<div class="footer-section" role="region" aria-label="Tentang Kami">
+<div class="footer-logo">
+<i class="fas fa-tshirt"></i>
+<span>Varsity<span class="logo-accent">Elite</span></span>
+</div>
+<p>Specialist jaket varsity untuk tim esport Indonesia dengan kualitas premium dan desain eksklusif.</p>
+<div class="social-links">
+<a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+<a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+<a href="#" aria-label="Follow us on TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
+</div>
+<div class="footer-section" role="region" aria-label="Koleksi Produk">
+<h3>Koleksi</h3>
+<ul>
+<li><a href="#">EVOS Collection</a></li>
+<li><a href="#">RRQ Collection</a></li>
+<li><a href="#">ONIC Collection</a></li>
+<li><a href="#">Alter Ego Collection</a></li>
+<li><a href="#">Semua Produk</a></li>
+</ul>
+</div>
+<div class="footer-section" role="region" aria-label="Bantuan dan Dukungan">
+<h3>Bantuan</h3>
+<ul>
+<li><a href="#">Cara Pemesanan</a></li>
+<li><a href="#">Panduan Ukuran</a></li>
+<li><a href="#">Pengembalian</a></li>
+<li><a href="#">Syarat & Ketentuan</a></li>
+<li><a href="#">Kebijakan Privasi</a></li>
+</ul>
+</div>
+<div class="footer-section" role="region" aria-label="Informasi Kontak">
+<h3>Kontak</h3>
+<ul class="contact-info">
+<li><i class="fas fa-map-marker-alt"></i> Jl. Esport No. 123, Jakarta</li>
+<li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+<li><i class="fas fa-envelope"></i> info@varsityelite.com</li>
+<li><i class="fas fa-clock"></i> Senin - Jumat: 9:00 - 18:00</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2023 VarsityElite. All rights reserved.</p>
+</div>
+</footer>
+
+<!-- Image Modal -->
+<div id="image-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+<span class="close" aria-label="Close modal">&times;</span>
+<h2 id="modal-title" class="sr-only">Product Image</h2>
+<img class="modal-content" id="modal-img" alt="Product image">
+</div>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+<i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="scroll-animation.js"></script>
+<script>
+// Slider functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.slider-dot');
+const sliderContainer = document.querySelector('.slider-container');
+
+function showSlide(index) {
+  if (index >= slides.length) currentSlide = 0;
+  if (index < 0) currentSlide = slides.length - 1;
+
+  sliderContainer.style.transition = 'transform 0.8s ease-in-out';
+  sliderContainer.style.transform = `translateX(-${currentSlide * 33.333}%)`;
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+  currentSlide++;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide--;
+  showSlide(currentSlide);
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  showSlide(currentSlide);
+}
+
+// Event listeners
+document.getElementById('next-slide').addEventListener('click', () => {
+  nextSlide();
+  resetAutoSlide();
+});
+document.getElementById('prev-slide').addEventListener('click', () => {
+  prevSlide();
+  resetAutoSlide();
+});
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    goToSlide(index);
+    resetAutoSlide();
+  });
+});
+
+// Auto slide functionality
+let autoSlideInterval = setInterval(() => {
+  nextSlide();
+}, 5000);
+
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(() => {
+    nextSlide();
+  }, 5000);
+}
+
+// Get the modal
+var modal = document.getElementById('image-modal');
+
+// Get the image and insert it inside the modal
+var modalImg = document.getElementById('modal-img');
+
+// Get all product images
+var images = document.querySelectorAll('.product-image img');
+
+// Loop through images and add click event
+images.forEach(function(img) {
+  img.onclick = function(){
+    modal.style.display = "block";
+    modal.setAttribute('aria-hidden', 'false');
+    modalImg.src = this.src;
+  }
+});
+
+// Search input toggle and filter functionality
+const searchBtn = document.querySelector('.search-btn');
+const searchInput = document.getElementById('search-input');
+const productCards = document.querySelectorAll('.featured-products .product-card');
+
+searchBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+    searchInput.style.display = 'inline-block';
+    searchInput.focus();
+  } else {
+    searchInput.style.display = 'none';
+    searchInput.value = '';
+    filterProducts('');
+  }
+});
+
+searchInput.addEventListener('input', () => {
+  const query = searchInput.value.toLowerCase();
+  filterProducts(query);
+});
+
+function filterProducts(query) {
+  productCards.forEach(card => {
+    const productName = card.querySelector('.product-name').textContent.toLowerCase();
+    if (productName.includes(query)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function updateLiveDateTime() {
+  const dateOptions = { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Jakarta' };
+  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' };
+  const now = new Date();
+  const jakartaDate = now.toLocaleDateString('id-ID', dateOptions);
+  const jakartaTime = now.toLocaleTimeString('id-ID', timeOptions);
+  document.getElementById('live-date').textContent = jakartaDate;
+  document.getElementById('live-time').textContent = jakartaTime + ' WIB';
+}
+setInterval(updateLiveDateTime, 1000); // Update every second
+updateLiveDateTime(); // Initial call
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+// When the user clicks anywhere outside of the modal, close it
+modal.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    modal.setAttribute('aria-hidden', 'true');
+  }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape' && modal.style.display === 'block') {
+    modal.style.display = "none";
+    modal.setAttribute('aria-hidden', 'true');
+  }
+});
+</script>
+</body>
+</html>

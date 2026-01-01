@@ -1,0 +1,323 @@
+/* ===== Umum ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #F8F7F3;
+  color: #343434;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background: linear-gradient(90deg, #101D6B 0%, #05049F 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: #fff;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.logo {
+  height: 55px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #F8F7F3;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #7574FF;
+}
+
+
+/* ===== Navbar ===== */
+.navbar {
+  background: linear-gradient(90deg, #101D6B 0%, #05049F 100%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: #fff;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.logo {
+  height: 55px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #F8F7F3;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #7574FF;
+}
+
+/* ------------------ HERO SECTION ------------------ */
+.anak-hero {
+  background: var(--bg-soft);
+  padding: 35px 0 25px;
+  border-bottom: 1px solid var(--border);
+}
+
+.anak-hero h1 {
+  margin: 0 0 8px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.anak-hero p {
+  margin: 0 0 18px;
+  color: var(--text-light);
+}
+
+/* ------------------ SEARCH & TOOLBAR ------------------ */
+.anak-toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.anak-toolbar input[type="text"] {
+  flex: 1 1 260px;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+}
+
+.anak-toolbar input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(11, 22, 65, 0.28);
+}
+
+.perpage-label select {
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background: #fff;
+}
+
+/* ------------------ GRID LIST ------------------ */
+.anak-grid {
+  margin: 22px 0 18px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+/* Responsive Grid */
+@media (min-width: 600px) {
+  .anak-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 960px) {
+  .anak-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ------------------ CARD ANAK ------------------ */
+.anak-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 14px;
+  transition: .2s;
+}
+
+.anak-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.anak-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  background: #e9e9e9;
+}
+
+.anak-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.anak-card p {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--text-light);
+}
+
+.anak-meta {
+  margin-top: 6px;
+  font-size: .9rem;
+  color: var(--secondary);
+}
+
+/* Link detail */
+.card-actions {
+  margin-top: 10px;
+}
+
+.card-actions a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--primary);
+  padding: 8px 16px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  background: transparent;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.card-actions a:hover {
+  background: var(--primary);
+  color: #091993;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ------------------ PAGINATION ------------------ */
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 25px 0 35px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: var(--primary);
+  color: #091993;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.pagination button.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.pagination button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ------------------ DETAIL PAGE ------------------ */
+.anak-detail-wrap {
+  padding: 28px 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.anak-detail-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 18px;
+}
+
+.anak-detail-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.anak-detail-card h1 {
+  margin: 0 0 6px;
+  color: var(--primary);
+  font-size: 1.6rem;
+}
+
+.detail-cta {
+  margin-top: 22px;
+  text-align: center;
+}
+
+.detail-cta .btn-donasi {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.detail-cta .btn-donasi:hover {
+  background: var(--secondary);
+}

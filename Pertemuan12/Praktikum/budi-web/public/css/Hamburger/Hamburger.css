@@ -1,0 +1,190 @@
+/* Hamburger and responsive nav styles */
+
+/* Make sure nav links are horizontal on desktop */
+.nav-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+/* Hide native list style and ensure buttons look clean */
+.nav-links a {
+  display: inline-block;
+}
+
+/* Special styling for Login button on desktop */
+.nav-links a[href*="login"] {
+  background: white;
+  color: #081250;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.nav-links a[href*="login"]:hover {
+  background: #f8f9fa;
+  color: #05049f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+
+
+/* Hamburger toggle button (desktop hidden) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 12px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hide close button on desktop */
+.nav-close {
+  display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  /* Navigation menu mobile styles */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(8,18,80,0.98), rgba(5,4,159,0.98));
+    flex-direction: column;
+    padding: 80px 20px 20px 20px;
+    gap: 18px;
+    align-items: flex-start;
+    z-index: 9999;
+    transition: right 0.35s cubic-bezier(.2,.9,.3,1);
+    box-shadow: -6px 0 18px rgba(0,0,0,0.2);
+    pointer-events: auto;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  /* show hamburger */
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* transform hamburger when active */
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Close button for mobile menu */
+  .nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    display: block;
+  }
+
+  .nav-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-menu a {
+    color: #fff;
+    font-size: 1.05rem;
+    width: 100%;
+    padding: 10px 6px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-menu.active a {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .nav-menu.active a:nth-child(1) { transition-delay: 0.1s; }
+  .nav-menu.active a:nth-child(2) { transition-delay: 0.15s; }
+  .nav-menu.active a:nth-child(3) { transition-delay: 0.2s; }
+  .nav-menu.active a:nth-child(4) { transition-delay: 0.25s; }
+  .nav-menu.active a:nth-child(5) { transition-delay: 0.3s; }
+  .nav-menu.active a:nth-child(6) { transition-delay: 0.35s; }
+  .nav-menu.active a:nth-child(7) { transition-delay: 0.4s; }
+
+  /* Special styling for Login button in mobile menu */
+  .nav-menu a[href*="login"] {
+    background: white !important;
+    color: #081250 !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    margin-top: 8px !important;
+    text-align: center !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .nav-menu a[href*="login"]:hover {
+    background: #f8f9fa !important;
+    color: #05049f !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+  }
+
+  /* Add a subtle backdrop when nav is open (created dynamically by JS) */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 9998;
+    display: none;
+    /* Allow clicks to pass through the overlay to the page (so overlay doesn't block interactions)
+       The document-level click handler will still detect clicks outside the menu and close it. */
+    pointer-events: none;
+  }
+
+  .nav-backdrop.show {
+    display: block;
+  }
+
+  /* Ensure logo remains visible but smaller on mobile */
+  .logo {
+    height: 44px;
+  }
+
+  /* Make nav links in header hidden since menu slides over */
+  .nav-links:not(.nav-menu) { display: none; }
+
+}

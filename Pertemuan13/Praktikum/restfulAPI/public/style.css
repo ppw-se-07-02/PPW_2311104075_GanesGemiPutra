@@ -1,0 +1,84 @@
+*{box-sizing:border-box;font-family:system-ui,Segoe UI,Arial}
+body{margin:0;background:#0b1220;color:#e7ecff}
+.container{max-width:980px;margin:32px auto;padding:0 16px}
+h1{margin:0 0 6px}
+.sub{margin:0 0 18px;opacity:.8}
+.card{background:#121a2b;border:1px solid #24304b;border-radius:14px;padding:16px;margin:14px 0}
+label{display:block;margin-top:10px;margin-bottom:6px;opacity:.9}
+input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #2b3a5c;background:#0c1324;color:#e7ecff}
+button{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;background:#3b82f6;color:white;font-weight:600}
+button.ghost{background:transparent;border:1px solid #2b3a5c;color:#e7ecff}
+.row{display:flex;gap:10px;margin-top:12px}
+.row-between{display:flex;justify-content:space-between;align-items:center}
+.actions{display:flex;gap:8px}
+.msg{margin-top:10px;min-height:20px;opacity:.9}
+.hidden{display:none}
+.small{font-size:12px;opacity:.8}
+
+/* ====== TABLE CARD ====== */
+.table-card{
+  padding: 14px 16px;
+}
+
+/* Wrapper agar tabel bisa kecil tapi tetap kelihatan */
+.table-wrapper{
+  margin-top: 10px;
+  min-height: 160px;     /* 🔥 biar tidak "hilang" saat data kosong */
+  max-height: 240px;     /* 🔥 batas tinggi agar tidak makan layar */
+  overflow: auto;
+  border: 1px solid #24304b;
+  border-radius: 12px;
+  background: #0c1324;
+}
+
+/* Tabel rapi */
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th{
+  position: sticky;
+  top: 0;
+  background: #0c1324;     /* harus sama dengan wrapper */
+  z-index: 2;
+  text-align: left;
+  font-weight: 700;
+  font-size: 13px;
+  color: #cbd5ff;
+  border-bottom: 1px solid #24304b;
+  padding: 10px 12px;
+}
+
+tbody td{
+  padding: 10px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid #1e2a44;
+  color: #e7ecff;
+  vertical-align: middle;
+}
+
+/* Stripe halus biar kebaca */
+tbody tr:nth-child(even){
+  background: rgba(255,255,255,0.02);
+}
+
+/* Empty state: "Data kosong." jelas */
+tbody tr:only-child td[colspan]{
+  text-align: center;
+  color: #9aa4bf;
+  font-style: italic;
+  padding: 26px 12px;
+  border-bottom: none;
+}
+
+/* Tombol aksi agar rapi */
+.actions{
+  display: flex;
+  gap: 8px;
+}
+.actions button{
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+}
