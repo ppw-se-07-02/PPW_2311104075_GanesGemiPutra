@@ -1,0 +1,25 @@
+/* Simple Bootstrap sidebar layout */
+:root { --sidebar-width: 260px; }
+body { background: #f6f8fb; }
+.app { min-height: 100vh; display: flex; }
+.sidebar {
+  width: var(--sidebar-width);
+  background: #111827;
+  color: #e5e7eb;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 16px;
+}
+.sidebar .brand { font-weight: 700; font-size: 1.1rem; margin-bottom: 18px; }
+.sidebar a {
+  display: flex; gap: 10px; align-items: center;
+  color: #e5e7eb; text-decoration: none;
+  padding: 10px 12px; border-radius: 10px;
+}
+.sidebar a:hover { background: rgba(255,255,255,.08); }
+.sidebar a.active { background: rgba(59,130,246,.25); }
+.content { flex: 1; padding: 22px; }
+.card { border: 0; border-radius: 14px; box-shadow: 0 10px 30px rgba(17,24,39,.08); }
+.table thead th { background: #f3f4f6; }
+.badge-soft { background: #eef2ff; color: #3730a3; }

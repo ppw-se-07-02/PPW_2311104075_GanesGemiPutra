@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tugas Modul 6 - JavaScript & jQuery</title>
+
+  <!-- Bootstrap (opsional, untuk tampilan rapi & responsif) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-light">
+  <main class="container py-4">
+    <h1 class="text-center fw-bold mb-4">Tugas Modul 6 - JavaScript & jQuery</h1>
+
+    <!-- Tugas 1 -->
+    <section class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h2 class="h5 fw-bold mb-3">Tugas 1: Menghitung Total Harga Pembelian</h2>
+        <div class="alert alert-info mb-3">
+          <strong>Deskripsi:</strong> Program JavaScript untuk menghitung total harga pembelian barang berdasarkan harga satuan dan jumlah.
+        </div>
+
+        <h3 class="h6 fw-bold mb-2">Pembelian Barang</h3>
+        <div id="listBarang" class="mb-3"></div>
+
+        <button id="btnHitung" class="btn btn-primary">Hitung Total Harga</button>
+
+        <div id="totalWrap" class="alert alert-success mt-3 d-none" role="alert"></div>
+      </div>
+    </section>
+
+    <!-- Tugas 2 -->
+    <section class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h2 class="h5 fw-bold mb-3">Tugas 2: Mengganti Teks dengan jQuery</h2>
+        <div class="alert alert-info mb-3">
+          <strong>Deskripsi:</strong> Mengganti teks dalam elemen menggunakan jQuery setelah halaman selesai dimuat.
+        </div>
+        <div class="alert alert-primary mb-0">
+          <span id="teks">Teks ini akan diganti setelah halaman dimuat.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tugas 3 -->
+    <section class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h2 class="h5 fw-bold mb-3">Tugas 3: Tombol dengan Efek jQuery</h2>
+        <div class="alert alert-info mb-3">
+          <strong>Deskripsi:</strong> Mengubah teks dan warna elemen ketika tombol diklik menggunakan jQuery.
+        </div>
+        <button id="btnEfek" class="btn btn-primary mb-3">Klik Saya!</button>
+        <div id="boxEfek" class="alert alert-secondary mb-0">Teks akan berubah setelah tombol diklik</div>
+      </div>
+    </section>
+
+    <!-- Tugas 4 -->
+    <section class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h2 class="h5 fw-bold mb-3">Tugas 4: Menyembunyikan dan Menampilkan Kotak</h2>
+        <div class="alert alert-info mb-3">
+          <strong>Deskripsi:</strong> Menyembunyikan dan menampilkan elemen dengan efek fade menggunakan jQuery.
+        </div>
+
+        <div class="d-flex gap-2 mb-3">
+          <button id="btnSembunyi" class="btn btn-primary">Sembunyikan</button>
+          <button id="btnTampil" class="btn btn-primary">Tampilkan</button>
+        </div>
+
+        <div id="kotak" class="kotak"></div>
+      </div>
+    </section>
+
+    <footer class="text-center text-muted small">
+      <div>PPW - Modul 6 (JavaScript & jQuery)</div>
+    </footer>
+  </main>
+
+  <!-- jQuery (wajib untuk tugas 2-4) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

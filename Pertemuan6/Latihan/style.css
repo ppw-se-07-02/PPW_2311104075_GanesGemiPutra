@@ -1,0 +1,23 @@
+/* Tampilan rapi mengikuti contoh pada modul/laporan */
+#listBarang .barang-item{
+  border-left: 4px solid #198754;
+  background: #f8f9fa;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.kotak{
+  width: 86px;
+  height: 86px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2c7bb6, #174a7a);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+
+.box-clicked{
+  background: #f8d7da !important; /* mirip tampilan "sesudah diklik" pada laporan */
+  color: #842029 !important;
+  border-color: #f5c2c7 !important;
+}
